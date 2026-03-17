@@ -202,11 +202,18 @@ body {
     color: inherit;
 }
 
+.page-carte {
+    overflow: hidden;
+    height: 100dvh;
+    touch-action: none;
+}
+
 .carte {
     background-color: var(--bg-color);
     justify-content: flex-start;
     padding-top: 120px;
     /* Space for the fixed header */
+    height: 100dvh;
     overflow: hidden;
 }
 
@@ -331,7 +338,7 @@ body {
 }
 
 .carousel-arrow img {
-    width: 28px;
+    width: 24px;
     height: auto;
     /* Native opacity from SVG used */
 }
@@ -355,6 +362,7 @@ body {
     width: 100%;
     max-height: 40dvh;
     object-fit: contain;
+    transition: opacity 0.3s ease;
 }
 
 .product-card-arched {
