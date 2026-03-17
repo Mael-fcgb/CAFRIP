@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFRIP - La Carte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-carte">
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu-btn" id="closeMenu">
+            <span class="close-icon"></span>
+        </button>
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-link">ACCUEIL</a>
+            <a href="carte.html" class="menu-link">CARTE</a>
+            <a href="https://vinted.fr" class="menu-link" target="_blank">SHOP</a>
+            <a href="#" class="menu-link">COMEDY CLUB</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="section carte" id="carte">
+            <div class="carte-header">
+                <a href="index.html" class="back-link">
+                    <h2 class="section-title">LA CARTE</h2>
+                </a>
+                <div class="burger-menu" id="openMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch">
+                    <div class="toggle-slider"></div>
+                    <button class="toggle-btn active" data-type="drink">À BOIRE</button>
+                    <button class="toggle-btn" data-type="food">À MANGER</button>
+                </div>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel-arrow left">
+                    <img src="arrow-opacity.svg" alt="prev">
+                </button>
+                <div class="carousel-viewport">
+                    <div class="carousel-item active">
+                        <img src="coffee-cup.png" alt="Capuccino" class="product-image">
+                    </div>
+                </div>
+                <button class="carousel-arrow right">
+                    <img src="arrow-opacity.svg" alt="next">
+                </button>
+            </div>
+
+            <div class="product-card-arched">
+                <h3 class="product-title">CAPUCCINO</h3>
+                <p class="product-subtitle">VOLUME 33CL</p>
+                <p class="product-price">6,5€</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
