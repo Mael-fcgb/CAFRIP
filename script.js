@@ -28,12 +28,6 @@ if (productTitle) {
                 subtitle: "VOLUME 33CL",
                 price: "6,5€",
                 image: "coffee-cup.png"
-            },
-            {
-                title: "MATCHA",
-                subtitle: "VOLUME 33CL",
-                price: "7,0€",
-                image: "matcha.png"
             }
         ],
         food: [

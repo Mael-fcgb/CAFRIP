@@ -520,3 +520,297 @@ body {
 .pill-button:hover {
     transform: scale(1.02);
 }
+
+/* Mobile basic display rules */
+.side-cup {
+    display: none;
+}
+
+/* ==========================================================================
+   DESKTOP OPTIMIZATIONS
+   ========================================================================== */
+@media (min-width: 1024px) {
+
+    /* Menu Navigation */
+    .menu-link {
+        font-size: 64px;
+    }
+
+    /* Home Page Hero - Fluid Full-Screen Layout */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content 1fr;
+        grid-template-areas:
+            "title title"
+            "info sticker"
+            "buttons sticker";
+        align-items: center;
+        justify-content: stretch;
+        padding: calc(env(safe-area-inset-top) + 6vh) 4%;
+        gap: 0 5%;
+        height: 100dvh;
+        max-height: 100dvh;
+        overflow: hidden;
+        /* Lock screen size */
+    }
+
+    .main-title {
+        grid-area: title;
+        text-align: left;
+        margin: 0 0 0 -0.1em;
+        /* Optical alignment: removes leading font space to align the 'C' perfectly */
+        padding-bottom: 10vh;
+        /* Fluid spacing */
+        font-size: clamp(100px, 18vw, 300px);
+        /* Massive fluid title */
+        line-height: 0.8;
+    }
+
+    .hero-info {
+        grid-area: info;
+        text-align: left;
+        margin: 0;
+        padding-bottom: 4vh;
+        /* Fluid spacing */
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-info p {
+        text-align: left;
+        font-size: clamp(16px, 1.5vw, 16px);
+    }
+
+    .hero-info br {
+        display: none;
+    }
+
+    .address-link {
+        justify-content: flex-start;
+        font-size: clamp(16px, 1.5vw, 16px);
+    }
+
+    .nav-buttons {
+        grid-area: buttons;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-self: start;
+        max-width: 500px;
+        width: 100%;
+        margin: 0;
+        gap: clamp(16px, 3vh, 32px);
+        /* Fluid gap */
+    }
+
+    .pill-button {
+        width: 100%;
+        min-width: unset;
+        padding: clamp(16px, 2.5vh, 28px) 32px;
+        /* Fluid padding */
+        font-size: clamp(18px, 1.8vw, 26px);
+    }
+
+    .sticker-container {
+        grid-area: sticker;
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        justify-self: center;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rotating-sticker {
+        width: clamp(250px, 35vw, 700px);
+        /* Stick grows massively with screen */
+        height: auto;
+    }
+
+    /* Carte Layout Split Screen */
+    .page-carte {
+        overflow: hidden;
+    }
+
+    .carte-header {
+        position: relative; /* Return to natural document stack */
+        padding: 0; /* Remove redundant side-padding since .carte provides it */
+        margin-bottom: 4vh; /* Push the table down cleanly */
+        width: 100%;
+        align-items: center; /* Center the burger relative to text */
+        pointer-events: auto;
+    }
+
+    .carte .section-title {
+        font-size: clamp(60px, 11vw, 180px); /* Scaled down to be more elegant */
+        margin-left: -0.1em;
+        line-height: 0.8;
+        padding-top: 0; /* Let flexbox handle alignment */
+        white-space: nowrap; /* Prevent stacking */
+    }
+
+    .burger-menu {
+        width: clamp(80px, 8vw, 130px); /* Make it bigger */
+        height: clamp(80px, 8vw, 130px);
+        border-width: clamp(4px, 0.5vw, 8px);
+        gap: clamp(6px, 1vw, 12px);
+        cursor: pointer;
+        margin-top: 0; /* Let flexbox handle alignment */
+    }
+
+    .burger-menu span {
+        width: 50%;
+        height: clamp(4px, 0.5vw, 8px);
+    }
+
+    /* Perfectly align the Close button on desktop */
+    .close-menu-btn {
+        width: clamp(80px, 8vw, 130px);
+        height: clamp(80px, 8vw, 130px);
+        border-width: clamp(4px, 0.5vw, 8px);
+        right: 4%; 
+        /* Y Center = Carte Top Padding (4vh) + half text height (clamp * 0.8 / 2). Top = Y Center - half button height */
+        top: calc(4vh + (clamp(60px, 11vw, 180px) * 0.4) - (clamp(80px, 8vw, 130px) / 2));
+    }
+
+    .close-icon {
+        width: 50%;
+        height: 50%;
+    }
+
+    .close-icon::before,
+    .close-icon::after {
+        height: clamp(4px, 0.5vw, 8px);
+    }
+
+    /* Adjust clip-path animation center to match the new burger location exactly */
+    .menu-overlay {
+        clip-path: circle(0% at calc(100% - 4% - (clamp(80px, 8vw, 130px) / 2)) calc(4vh + (clamp(60px, 11vw, 180px) * 0.4)));
+    }
+
+    .menu-overlay.active {
+        clip-path: circle(150% at calc(100% - 4% - (clamp(80px, 8vw, 130px) / 2)) calc(4vh + (clamp(60px, 11vw, 180px) * 0.4)));
+    }
+
+    /* Hide unneeded elements */
+    .toggle-container {
+        display: none !important;
+    }
+
+    .carte {
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 0 4% 0; /* Flush bottom */
+        height: 100dvh;
+    }
+
+    .carousel-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+        flex: 1; /* Take up all vertical middle space */
+        position: relative;
+        margin-top: 5vh;
+    }
+
+    /* Style side cups statically */
+    .side-cup {
+        display: block; /* Override default none */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40vh; /* Slightly smaller than main cup */
+        width: auto;
+        opacity: 0.5; /* Dimmed side focus */
+        z-index: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .side-cup:hover {
+        opacity: 0.8;
+    }
+
+    .cup-left {
+        left: 5%;
+    }
+
+    .cup-right {
+        right: 5%;
+    }
+
+    /* Center view arrow placement */
+    .carousel-arrow {
+        position: relative;
+        left: auto;
+        right: auto;
+        transform: none;
+        margin: 0 4vw;
+        z-index: 10;
+        width: 48px;
+        height: 64px;
+    }
+
+    .carousel-item img {
+        height: 48vh; /* Massive central cup */
+        max-height: none;
+        z-index: 5;
+    }
+
+    /* Product Dome styling matching mockup perfectly */
+    .product-card-arched {
+        width: 35%;
+        max-width: 600px;
+        height: auto;
+        padding: 40px 60px 40px;
+        border-radius: 300px 300px 0 0; /* Perfect half-circle dome */
+        border: 2px solid rgba(255, 255, 255, 0.1); 
+        border-bottom: none; /* Flush to edge */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end; 
+        background-color: transparent;
+        margin: auto auto 0; /* Anchor securely to the bottom center */
+        box-shadow: none; /* Make sleek */
+    }
+
+    /* Match mockup font weights and sizes */
+    .product-title {
+        font-family: var(--font-sub);
+        font-size: 32px;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: 0.05em;
+    }
+
+    .product-subtitle {
+        font-family: var(--font-sub);
+        font-size: 14px;
+        font-weight: 500;
+        margin: 10px 0 5px;
+        letter-spacing: 0.1em;
+    }
+
+    .product-price {
+        font-family: var(--font-sub);
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+    }
+}
